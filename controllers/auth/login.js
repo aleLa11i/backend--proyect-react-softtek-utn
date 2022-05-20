@@ -34,18 +34,12 @@ const loginUser = async (req, res = response) => {
   
       //Genero el token
       const token = await generateJWT(user.id, user.name)
-  
-      console.log({ok: true,
-        msg: "Logeado",
-        email,
-        name: user.name,
-        image: user.image,
-        token});
 
       //Si todo sale bien, devuelvo un 201 con un mensaje de logeado
       return res.status(201).json({
         ok: true,
         msg: "Logeado",
+        uid: user.id,
         email,
         name: user.name,
         image: user.image,

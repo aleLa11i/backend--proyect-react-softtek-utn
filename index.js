@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 const {PORT} = process.env;
 const cors = require("cors");
 const Auth = require("./routes/auth");
-// const Event = require("./routes/events");
+const Posts = require("./routes/posts");
 const app = express();
 const { DBconnect } = require("./db/config");
 
@@ -11,7 +11,7 @@ app.use( express.static("public") );
 app.use( express.json() );
 app.use(cors());
 app.use("/api/auth", Auth );
-// app.use("/api/events", Event );
+app.use("/api/posts", Posts );
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/build/index.html'));
 });

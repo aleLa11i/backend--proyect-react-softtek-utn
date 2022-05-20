@@ -14,8 +14,8 @@ const validJWT = async (req, res = response, next) => {
   }
 
   try {
-        console.log(SECRET_JWT_SEED);
         const { uid, name } = jwt.verify(token, SECRET_JWT_SEED);
+        console.log( uid, name );
         req.uid = uid;
         req.name = name;
   } 
