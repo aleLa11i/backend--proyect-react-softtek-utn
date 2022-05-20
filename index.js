@@ -12,9 +12,6 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/auth", Auth);
 app.use("/api/posts", Posts);
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/build/index.html"));
-});
 
 DBconnect();
 
