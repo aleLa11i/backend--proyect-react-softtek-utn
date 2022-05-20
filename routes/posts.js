@@ -10,17 +10,20 @@ const newPost = require("../controllers/posts/newpost");
 const getPosts = require("../controllers/posts/getposts");
 const { validErr } = require("../middlewares/validErr");
 
-router.post( "/new",[
+router.post(
+  "/new",
+  [
     check("user", "El usuario es obligatorio").not().isEmpty(),
     check("postId", "El postId es obligatorio").not().isEmpty(),
     check("title", "El titulo es obligatorio").not().isEmpty(),
     check("mainimage", "La imagen principal es obligatorio").not().isEmpty(),
     check("images", "Las imagenes son obligatorias").not().isEmpty(),
     check("date", "La fecha es obligatoria").not().isEmpty(),
-    validErr
+    validErr,
+  ],
+  newPost
+);
 
-],newPost );
-
-router.get( "/get", getPosts );
+router.get("/get", getPosts);
 
 module.exports = router;

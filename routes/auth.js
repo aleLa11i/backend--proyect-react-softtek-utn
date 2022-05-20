@@ -12,12 +12,14 @@ const createUser = require("../controllers/auth/register");
 const renewToken = require("../controllers/auth/renew");
 const loginUser = require("../controllers/auth/login");
 
-
 router.post(
   "/new",
   [
     check("name", "El nombre es obligatorio.").not().isEmpty(),
-    check("password", "La contraseña debe ser de por lo menos 8 caracteres.").isLength({ min: 8 }),
+    check(
+      "password",
+      "La contraseña debe ser de por lo menos 8 caracteres."
+    ).isLength({ min: 8 }),
     check("email", "El email es inválido.").isEmail(),
     validErr,
   ],
@@ -34,6 +36,6 @@ router.post(
   loginUser
 );
 
-router.get("/renew",validJWT, renewToken);
+router.get("/renew", validJWT, renewToken);
 
 module.exports = router;

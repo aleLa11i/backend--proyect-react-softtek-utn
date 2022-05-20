@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const Posts = Schema({
-  user:{
+  user: {
     type: Object,
     required: true,
   },
-  postId:{
+  postId: {
     type: String,
     required: true,
   },
@@ -13,11 +13,11 @@ const Posts = Schema({
     type: String,
     required: true,
   },
-  description:{
+  description: {
     type: String,
     required: true,
   },
-  mainimage:{
+  mainimage: {
     type: String,
     required: true,
   },
@@ -28,7 +28,7 @@ const Posts = Schema({
   date: {
     type: Date,
     required: true,
-  }
+  },
 });
 
 module.exports = model("Post", Posts);

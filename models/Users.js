@@ -16,8 +16,8 @@ const Users = Schema({
   },
   image: {
     type: String,
-    required: false
-  }
+    required: false,
+  },
 });
 
 module.exports = model("User", Users);

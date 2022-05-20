@@ -16,11 +16,11 @@ const generateJWT = (uid, name) => {
           console.log(err);
           rej("No se pudo resolver el token");
         }
-        console.log("Se genero el token correctamente. Token: "+token)
+        console.log("Se genero el token correctamente. Token: " + token);
         res(token);
       }
     );
   });
 };
 
-module.exports = {generateJWT};
+module.exports = { generateJWT };
