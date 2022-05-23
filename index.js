@@ -7,6 +7,7 @@ const Posts = require("./routes/posts");
 const app = express();
 const { DBconnect } = require("./db/config");
 
+app.use( express.urlencoded({extended: false}));
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cors());
