@@ -11,7 +11,13 @@ const { DBconnect } = require("./db/config");
 app.use( express.urlencoded({extended: false}));
 app.use(express.static("public"));
 app.use(express.json());
-app.use(cors());
+app.use(cors([
+  {
+      origin: "*", //servidor que deseas que consuma o (*) en caso que sea acceso libre
+      credentials: true
+  }
+]));
+
 app.use(morgan('tiny'));
 app.use("/api/auth", Auth);
 app.use("/api/posts", Posts);
