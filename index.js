@@ -5,12 +5,14 @@ const cors = require("cors");
 const Auth = require("./routes/auth");
 const Posts = require("./routes/posts");
 const app = express();
+const morgan = require('morgan');
 const { DBconnect } = require("./db/config");
 
 app.use( express.urlencoded({extended: false}));
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cors());
+app.use(morgan('tiny'));
 app.use("/api/auth", Auth);
 app.use("/api/posts", Posts);
 
