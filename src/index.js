@@ -20,9 +20,7 @@ app.use((req, res, next) => {
 app.use(cors());
 
 app.use(morgan('tiny'));
-Router().use("/", {
-  "Hello Wolrd":"Hello"
-})
+
 app.use("/.netlify/functions/api/auth", Auth);
 app.use("/.netlify/functions/api/posts", Posts);
 
