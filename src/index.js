@@ -8,6 +8,7 @@ const app = express();
 const morgan = require('morgan');
 const serverless = require('serverless-http');
 const { DBconnect } = require("./db/config");
+const { Router } = require("express");
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -19,6 +20,9 @@ app.use((req, res, next) => {
 app.use(cors());
 
 app.use(morgan('tiny'));
+Router().use("/", {
+  "Hello Wolrd":"Hello"
+})
 app.use("/.netlify/functions/api/auth", Auth);
 app.use("/.netlify/functions/api/posts", Posts);
 
