@@ -21,6 +21,12 @@ app.use(cors());
 
 app.use(morgan('tiny'));
 
+Router().get("/", (req,res) => {
+  res.json(
+    {"Hello Wolrd":"Hello"}
+  )
+})
+
 app.use("/.netlify/functions/api/auth", Auth);
 app.use("/.netlify/functions/api/posts", Posts);
 
